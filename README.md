@@ -1,4 +1,4 @@
-#  ounting Syllabales
+#  Counting Syllabales
 
 ## Table of Contents
 
