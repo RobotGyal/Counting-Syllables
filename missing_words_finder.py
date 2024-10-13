@@ -75,3 +75,14 @@ def make_exceptions_dict(exceptions_set):
     print("\nNew words or syllables changes:")
     pprint.pprint(missing_words, width=1)
     return missing_words
+
+def save_exceptions(missing_words):
+    """Save exceptions dictionary in JSON file."""
+    json_string = json.dumps(missing_words)
+    f = open('missing_words.json', 'w')
+    f.write(json_string)
+    f.close()
+    print("\nFile saved as missing_words.json")
+
+if __name__ == '__main__':
+    main()
