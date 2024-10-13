@@ -9,7 +9,7 @@
 
 ## About <a name = "about"></a>
 
-Based on Chapter 8 of "Impractical Python Projects"
+Based on Chapter 8 of "Impractical Python Projects" book
 
 ## Getting Started <a name = "getting_started"></a>
 
