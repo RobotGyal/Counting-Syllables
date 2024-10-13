@@ -39,3 +39,39 @@ def cmudict_missing(word_set):
     print("cmudict membership = {:.1f}{}".format(membership, '%'))
     return exceptions
 
+def make_exceptions_dict(exceptions_set):
+    """Return dictionary of words & syllable counts from a set of words."""
+    missing_words = {}
+    print("Input # syllables in word. Mistakes can be corrected at end. \n")
+    for word in exceptions_set:
+        while True:
+            num_sylls = input("Enter number syllables in {}: ".format(word))
+            if num_sylls.isdigit():
+                break
+            else:
+                print("         Not valid answer!", file=sys.stderr)
+        missing_words[word] = int(num_sylls)
+    print()
+    pprint.pprint(missing_words, width=1)
+
+    print("\nMake Changes to Dictionary Before Saving?")
+    print("""
+          0 - Exit & Save
+          1 - Add a Word or Change a Syllable Count
+          2 - Remove a Word
+          """)
+    
+    while True:
+        choice=input("\nEnter choice: ")
+        if choice == '0':
+            break
+        elif choice == '1':
+            word = input("\nWord to Add or Change: ")
+            missing_words[word] = int(input("Enter number syllables in {}: ".format(word)))
+        elif choice == '2':
+            word = input("\nEnter word to delete: ")
+            missing_words.pop(word, None)
+
+    print("\nNew words or syllables changes:")
+    pprint.pprint(missing_words, width=1)
+    return missing_words
